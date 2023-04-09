@@ -14,8 +14,8 @@ This is a simple React application that generates a truth table for a given bool
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/Ancentus/truth-table-generator
+        git clone https://github.com/Ancentus/truth-table-generator
+
 
 2. Install dependencies:
 
