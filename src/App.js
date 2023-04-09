@@ -45,37 +45,45 @@ const generateTruthTable = () => {
 
 
   return (
-    <div>
-      <h2>Truth Table Generator</h2>
-      <input
-        type="text"
-        value={expression}
-        onChange={(e) => setExpression(e.target.value)}
-        placeholder="Enter a digital logic expression"
-      />
-      <button onClick={generateTruthTable}>Generate Truth Table</button>
-      {truthTable.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              {Object.keys(truthTable[0].values).map((variable) => (
-                <th key={variable}>{variable}</th>
-              ))}
-              <th>Output</th>
-            </tr>
-          </thead>
-          <tbody>
-            {truthTable.map((row, index) => (
-              <tr key={index}>
-                {Object.values(row.values).map((value, i) => (
-                  <td key={i}>{value ? "1" : "0"}</td>
-                ))}
-                <td>{row.result ? "1" : "0"}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+    <div className="App">
+      
+        <div className="form">
+            <div className="form-inner">
+              <h2>Truth Table Generator</h2>
+             
+                <div className="form-group">
+                    <label htmlFor="expression">NOT(!) AND(.) OR(+)</label>
+                    <input type="text" id="expression"
+                      value={expression}
+                      onChange={(e) => setExpression(e.target.value)}
+                    placeholder="Enter a digital logic expression" />
+                </div>
+              <button onClick={generateTruthTable}>Generate Truth Table</button>
+                {truthTable.length > 0 && (
+                <table>
+                  <thead>
+                    <tr>
+                      {Object.keys(truthTable[0].values).map((variable) => (
+                        <th key={variable}>{variable}</th>
+                      ))}
+                      <th>Output</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {truthTable.map((row, index) => (
+                      <tr key={index}>
+                        {Object.values(row.values).map((value, i) => (
+                          <td key={i}>{value ? "1" : "0"}</td>
+                        ))}
+                        <td>{row.result ? "1" : "0"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </div>
+        </div>
+      
     </div>
   );
 };
